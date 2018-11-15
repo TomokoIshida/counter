@@ -1,15 +1,7 @@
 import React, { Component } from "react";
 
 class Counter extends Component {
-  //state = donnée du composant
-  state = {
-    valueCounter: 0
-  };
-
-  //onClick = propriété de button et de pleins d'autres balises
-  //(onClick = event)
   render() {
-    console.log("PAR ICIIIIIIIIII", this.props.name);
     return (
       <div
         style={{
@@ -27,25 +19,16 @@ class Counter extends Component {
           {this.props.name}
         </div>
         <button
+          onClick={this.props.minusFunction}
           style={{ marginLeft: "30px" }}
-          onClick={() => {
-            this.setState({ valueCounter: this.state.valueCounter - 1 });
-          }}
         >
           -
         </button>
-        <button
-          onClick={() => {
-            //this.setState = changer de state
-            this.setState({ valueCounter: this.state.valueCounter + 1 });
-          }}
-        >
-          +
-        </button>
+        <button onClick={this.props.plusFunction}>+</button>
         <div
           style={{ marginLeft: "30px", fontSize: "30px", fontWeight: "bold" }}
         >
-          {this.state.valueCounter}
+          {this.props.valueCounter}
         </div>
       </div>
     );
